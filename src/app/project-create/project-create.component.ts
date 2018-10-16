@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from  '../api.service';
 
 @Component({
   selector: 'app-project-create',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProjectCreateComponent implements OnInit {
 
-  constructor() { }
+  constructor(private  apiService:  ApiService) { }
 
   ngOnInit() {
   }
 
+  createContact(){
+
+    var  project  = {
+        name: "This is from front"
+    };
+    this.apiService.createProject(project).subscribe((response) => {
+        console.log(response);
+    });
+    };
 }

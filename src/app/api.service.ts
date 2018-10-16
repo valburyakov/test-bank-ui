@@ -12,5 +12,9 @@ export class ApiService {
 
   getProjects(){
     return  this.httpClient.get(`${this.API_URL}/projects`);
-}
+  }
+
+  createProject(project){
+    return  this.httpClient.post(`${this.API_URL}/projects`,project);
+  }
 }
