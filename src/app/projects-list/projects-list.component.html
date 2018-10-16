@@ -2,14 +2,16 @@
     My Projects
     </h1>
     <div>
-    <table  style="width:100%">
-    <tr>
-        <th>ID</th>
-        <th>Name</th>
-    </tr>
-    <tr *ngFor="let project of projects">
+    <table  style="width:40%">
+      <thead>
+          <th>ID</th>
+          <th>Name</th>  
+      </thead>
+      <tbody>
+      <tr *ngFor="let project of projects">
         <td> {{ project.id }} </td>
         <td> {{ project.name }} </td>
-    </tr>
+      </tr>
+    </tbody>
     </table>
     </div>
