@@ -14,6 +14,10 @@ export class ApiService {
     return  this.httpClient.get(`${this.API_URL}/projects`);
   }
 
+  getSuites(projectId){
+    return this.httpClient.get(`${this.API_URL}/projects/${projectId}/suites?deleted=false`)
+  }
+
   createProject(project){
     return  this.httpClient.post(`${this.API_URL}/projects`,project);
   }
