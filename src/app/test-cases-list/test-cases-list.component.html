@@ -1,0 +1,16 @@
+<mat-list>
+  <h3 mat-subheader>Test Cases
+    <button mat-icon-button>
+      <mat-icon id="addIcon" aria-label="Test Cases" [routerLink]="">add_box</mat-icon>
+    </button>
+  </h3>
+  <mat-list-item *ngFor="let testCase of cases">
+    <mat-icon class="project-icon" mat-list-icon>folder</mat-icon>
+    <a mat-line routerLink="/suites/cases/{{ testCase.id }}">{{testCase.name}}</a>
+    <p mat-line> {{testCase.description}} </p>
+    <mat-divider></mat-divider>
+  </mat-list-item>
+</mat-list>
+
+
+

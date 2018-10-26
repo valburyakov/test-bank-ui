@@ -7,18 +7,39 @@ import { ProjectCreateComponent } from './project-create/project-create.componen
 import { AppRoutingModule } from  './app-routing.module';
 import { HttpClientModule } from  '@angular/common/http';
 import { SuitesListComponent } from './suites-list/suites-list.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { TestCasesListComponent } from './test-cases-list/test-cases-list.component';
+import { TestCaseDetailsComponent } from './test-case-details/test-case-details.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule, MatInputModule, MatSidenavModule, MatFormFieldModule,
+         MatToolbarModule, MatIconModule, MatListModule} from '@angular/material';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProjectsListComponent,
     ProjectCreateComponent,
-    SuitesListComponent
+    SuitesListComponent,
+    SidebarComponent,
+    TestCasesListComponent,
+    TestCaseDetailsComponent,
+    HeaderComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatInputModule,
+    MatSidenavModule,
+    MatFormFieldModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatListModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

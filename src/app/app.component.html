@@ -1,39 +1,16 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-  <a class="navbar-brand" href="#">{{ title }}</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-    <ul class="navbar-nav mr-auto">
-      
-    </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <button [routerLink]="'/create-project'" class="btn btn-outline-success my-2 my-sm-0" type="submit">Create porject</button>
-    </form>
-  </div>
-</nav>
-
-<div class="wrapper">
-    <!-- Sidebar -->
-    <nav id="sidebar">
-        <div class="sidebar-header">
-            <h3>Projects</h3>
-        </div>
-
-        <ul class="list-unstyled components">    
-            <li *ngFor="let project of projects">
-                <a [routerLink]="'/create-project'">{{ project.name }}</a>
-            </li>
-        </ul>
-    </nav>
-
-    <!-- Page Content -->
-    <div id="content">
-        <!-- We'll fill this with dummy content -->
-    </div>
+<div id="container">
+  <app-sidebar></app-sidebar>
+  <div id="content">
     <router-outlet></router-outlet>
-</div>   
+  </div>
+</div>
+<!--TODO need to markup header!!!-->
+<div id="containerHeader">
+  <app-header></app-header>
+</div>
+<!--TODO need to markup footer!!!-->
+<div id="containerFooter">
+  <app-footer></app-footer>
+</div>
 
 

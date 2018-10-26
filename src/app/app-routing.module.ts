@@ -3,6 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { ProjectsListComponent } from './projects-list/projects-list.component';
 import { ProjectCreateComponent } from './project-create/project-create.component';
 import { SuitesListComponent } from './suites-list/suites-list.component';
+import { TestCasesListComponent } from './test-cases-list/test-cases-list.component';
+import { TestCaseDetailsComponent } from './test-case-details/test-case-details.component';
 
 const routes: Routes = [
   { path:  '', redirectTo:  'projects', pathMatch:  'full' },
@@ -17,6 +19,14 @@ const routes: Routes = [
   {
     path: 'projects/:projectId/suites',
     component: SuitesListComponent
+  },
+  {
+    path: 'suites/:suiteId/cases',
+    component: TestCasesListComponent
+  },
+  {
+    path: 'suites/cases/:caseId',
+    component: TestCaseDetailsComponent
   }
 ];
 

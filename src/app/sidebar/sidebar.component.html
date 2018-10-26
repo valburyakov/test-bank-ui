@@ -1,0 +1,20 @@
+<mat-sidenav-container>
+  <mat-sidenav #sidenav mode="side" opened="true" class="example-sidenav"
+               [fixedInViewport]="true" [fixedTopGap]="0"
+               [fixedBottomGap]="0">
+
+    <!--<mat-icon svgIcon="thumbs-up"></mat-icon>-->
+    <div class="project-icon">
+      <button mat-icon-button>
+        <mat-icon id="addIcon" aria-label="Projects">add_box</mat-icon>
+      </button>
+      <button mat-icon-button>
+        <mat-icon id="projectIcon" aria-label="Projects" routerLink="/projects">work</mat-icon>
+      </button>
+      <button mat-icon-button>
+        <mat-icon id="gamepadIcon" aria-label="Projects">gamepad</mat-icon>
+      </button>
+    </div>
+
+  </mat-sidenav>
+</mat-sidenav-container>

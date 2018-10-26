@@ -1,0 +1,53 @@
+/* You can add global styles to this file, and also import other style files */
+//@import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+body {
+  margin: 0;
+  background: #F2F2F2;
+  //background: #B5B2B0;
+  font-family: 'Montserrat', sans-serif;
+  height: 100vh;
+}
+
+#container {
+  display: grid;
+  grid-template-columns: 70px auto;
+  height: 100%;
+
+  #content {
+    padding: 30px 10px;
+
+    ul {
+      list-style-type: none;
+      margin:0;padding:0;
+
+      li {
+        background: #fff;
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 8px;
+        }
+      }
+    }
+}
+
+#containerHeader{
+  display: flex;
+  grid-template-columns: 50px auto;
+  height: 50%;
+}
+
+#containerFooter {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 20px;
+  background: #2D2E2E;
+}
+
+.project-icon {
+  color:#07BD6D;
+}
+
