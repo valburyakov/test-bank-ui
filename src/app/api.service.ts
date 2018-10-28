@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient} from  '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -7,6 +7,12 @@ import { HttpClient} from  '@angular/common/http';
 export class ApiService {
 
   API_URL  =  'http://localhost:8080';
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type':  'application/json;charset=UTF-8'
+    })
+  };
+
 
   constructor(private  httpClient:  HttpClient) { }
 
@@ -27,6 +33,6 @@ export class ApiService {
   }
 
   createProject(project){
-    return  this.httpClient.post(`${this.API_URL}/projects`,project);
+    return this.httpClient.post(`${this.API_URL}/projects`,project, this.httpOptions);
   }
 }

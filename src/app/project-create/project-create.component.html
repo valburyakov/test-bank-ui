@@ -1,2 +1,14 @@
-<h1> Create Project </h1>
+<h4> Create Project </h4>
+
+<div class="project-container">
+  <form class="project-form" [formGroup]="projectForm">
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Project name" type="text" [formControl]="projectForm.get('name')">
+    </mat-form-field>
+  </form>
+
+  <div>
+    <button id="createBtn" mat-button (click)="createProject()">Create</button>
+  </div>
+</div>
 

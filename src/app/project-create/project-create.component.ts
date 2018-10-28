@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { ApiService } from  '../api.service';
+import {Component, OnInit} from '@angular/core';
+import {ApiService} from '../api.service';
+import {FormGroup, FormBuilder, Validators} from "@angular/forms";
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-project-create',
@@ -8,18 +11,26 @@ import { ApiService } from  '../api.service';
 })
 export class ProjectCreateComponent implements OnInit {
 
-  constructor(private  apiService:  ApiService) { }
+  projectForm: FormGroup;
+
+  constructor(private  apiService: ApiService, private formBuilder: FormBuilder, private router: Router) {
+    this.projectForm = this.formBuilder.group({
+      name: this.formBuilder.control('', Validators.required),
+    });
+  }
 
   ngOnInit() {
   }
 
-  createContact(){
+  createProject() {
+    let project = {
+      name: this.projectForm.value
+    };
+    this.apiService.createProject(project.name).subscribe(((response) => {
+      let id =  response['id'];
+      this.router.navigate(['/projects/'+ id+'/suites']);
+    }));
+  }
 
-    var  project  = {
-        name: "This is from front"
-    };
-    this.apiService.createProject(project).subscribe((response) => {
-        console.log(response);
-    });
-    };
+
 }
