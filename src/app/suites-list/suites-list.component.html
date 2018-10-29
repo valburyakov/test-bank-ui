@@ -1,7 +1,7 @@
 <mat-list>
   <h3 mat-subheader>Suites
     <button mat-icon-button>
-      <mat-icon id="addIcon" aria-label="Suites" [routerLink]="">add_box</mat-icon>
+      <mat-icon id="addIcon" aria-label="Suites" (click)="openCreateSuite()">add_box</mat-icon>
     </button></h3>
   <mat-list-item *ngFor="let suite of suites">
     <mat-icon class="project-icon" mat-list-icon>folder</mat-icon>

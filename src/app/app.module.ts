@@ -16,6 +16,7 @@ import { MatButtonModule, MatInputModule, MatSidenavModule, MatFormFieldModule,
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SuiteCreateComponent } from './suite-create/suite-create.component';
 
 
 
@@ -30,6 +31,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     TestCaseDetailsComponent,
     HeaderComponent,
     FooterComponent,
+    SuiteCreateComponent,
   ],
   imports: [
     BrowserModule,

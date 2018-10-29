@@ -24,9 +24,9 @@ export class ProjectCreateComponent implements OnInit {
 
   createProject() {
     let project = {
-      name: this.projectForm.value
+      name: this.projectForm.value.name
     };
-    this.apiService.createProject(project.name).subscribe(((response) => {
+    this.apiService.createProject(project).subscribe(((response) => {
       let id =  response['id'];
       this.router.navigate(['/projects/'+ id+'/suites']);
     }));

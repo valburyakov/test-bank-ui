@@ -1,0 +1,14 @@
+<h4> Create Suite </h4>
+
+<div class="suite-container">
+  <form class="suite-form" [formGroup]="suiteForm">
+    <mat-form-field class="example-suite-width">
+      <input matInput placeholder="Suite name" type="text" [formControl]="suiteForm.get('name')">
+    </mat-form-field>
+  </form>
+
+  <div>
+    <button id="createBtn" mat-button (click)="createSuite()">Create</button>
+  </div>
+</div>
+

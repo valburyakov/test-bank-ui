@@ -33,6 +33,10 @@ export class ApiService {
   }
 
   createProject(project){
-    return this.httpClient.post(`${this.API_URL}/projects`,project, this.httpOptions);
+    return this.httpClient.post(`${this.API_URL}/projects`, project, this.httpOptions);
+  }
+
+  createSuite(projectId, suite){
+    return this.httpClient.post(`${this.API_URL}/projects/${projectId}/suites`, suite, this.httpOptions);
   }
 }

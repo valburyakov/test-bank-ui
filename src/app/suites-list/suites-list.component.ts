@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from  '../api.service';
-import { ActivatedRoute } from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-suites-list',
@@ -10,17 +10,22 @@ import { ActivatedRoute } from '@angular/router';
 export class SuitesListComponent implements OnInit {
 
   private suites:  Array<object> = [];
-  constructor(private  apiService:  ApiService,  private route: ActivatedRoute) { }
+  private projectId = +this.route.snapshot.paramMap.get('projectId');
+
+  constructor(private  apiService:  ApiService,  private route: ActivatedRoute, private router: Router) { }
   ngOnInit() {
     this.getSuites();
   }
 
   public getSuites(){
-    const projectId = +this.route.snapshot.paramMap.get('projectId');
-    this.apiService.getSuites(projectId).subscribe((data:  Array<object>) => {
+    this.apiService.getSuites(this.projectId).subscribe((data:  Array<object>) => {
         this.suites  =  data;
         console.log(data);
     });
   }
 
+
+  openCreateSuite() {
+    this.router.navigate(['/projects/'+ this.projectId+'/create-suite']);
+  }
 }
