@@ -1,12 +1,19 @@
 #header {
+  background: #f8f9fa;
+}
+
+.input {
+  color: #434343;
+  font-size: small;
   display: flex;
-  align-items: center;
+  padding: 4%;
+}
+
+.colored {
+  color: #434343;
+  padding: 0 14px;
+}
+
+.icon-spacer {
   flex: 1 1 auto;
-  position: fixed;
-  height: 30px;
-  top: 0;
-  left: 0;
-  right: 0;
-  background: #2D2E2E;
-  //z-index: 999;
 }

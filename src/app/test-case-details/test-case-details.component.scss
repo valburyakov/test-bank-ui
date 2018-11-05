@@ -1,16 +1,65 @@
 .demo-card-container {
 
   .test-case-card {
-    margin: 0;
-    background: #F2F2F2;
+    margin: 1%;
+    //background: #F2F2F2;
+    //background: aliceblue;
+    width: 92%;
+    background: #f8f9fa;
   }
 }
 
-
 #updateBtn {
-  background-color: #07BD6D;
+  //background-color: #34495e;
+  background: #3fb0ac;
+  color: #F2F2F2;
 }
 
 #deleteBtn {
-  background-color: red;
+  //background-color: #d35400;
+  background: #173e43;
+  color: #F2F2F2;
+}
+
+#title {
+  background: lightgray;
+}
+
+#labels {
+  background: #fae596;
+  //color: #F2F2F2;
+  color: #173e43;
+  //background-image: linear-gradient(45deg, #DCE35B, #45B649) !important;
+}
+
+.badge {
+  padding: 6px 10px;
+  font-size: 85%;
+  font-weight: 500;
+  letter-spacing: .3px;
+  //background: #f1c40f;
+  background: #fae596;
+  height: 50%;
+  //background-image: linear-gradient(45deg, #CAC531, #F3F9A7) !important;
+}
+
+.header-group {
+  display: flex;
+  padding-left: 1.5%;
+}
+
+.card-body {
+  background: aliceblue;
+}
+
+mat-card-actions {
+  padding-left: 1.5%;
+}
+
+.pad {
+    padding-left: 1.5% !important;
+}
+
+.icon-spacer {
+  flex: 1 1 auto;
 }

@@ -1,20 +1,37 @@
-<mat-sidenav-container>
-  <mat-sidenav #sidenav mode="side" opened="true" class="example-sidenav"
-               [fixedInViewport]="true" [fixedTopGap]="0"
-               [fixedBottomGap]="0">
+<mat-sidenav-container fxFlexFill>
+  <mat-sidenav id="sidenav" mode="side" opened="true" [fixedInViewport]="0">
+    <mat-nav-list>
 
-    <!--<mat-icon svgIcon="thumbs-up"></mat-icon>-->
-    <div class="project-icon">
-      <button mat-icon-button>
-        <mat-icon id="addIcon" aria-label="Projects">add_box</mat-icon>
-      </button>
-      <button mat-icon-button>
-        <mat-icon id="projectIcon" aria-label="Projects" routerLink="/projects">work</mat-icon>
-      </button>
-      <button mat-icon-button>
-        <mat-icon id="gamepadIcon" aria-label="Projects">gamepad</mat-icon>
-      </button>
-    </div>
+      <a mat-list-item class="gradient-text"><strong>TB</strong></a>
 
+
+      <a mat-list-item routerLink="/projects" class="light">
+        <mat-icon>add_box</mat-icon>
+      </a>
+      <a href="#" mat-list-item class="light">
+        <mat-icon>work</mat-icon>
+      </a>
+      <a href="#" mat-list-item class="light">
+        <mat-icon>gamepad</mat-icon>
+      </a>
+      <a href="#" mat-list-item class="light">
+        <mat-icon>airplay</mat-icon>
+      </a>
+      <a href="#" mat-list-item class="light">
+        <mat-icon>ballot</mat-icon>
+      </a>
+      <a href="#" mat-list-item class="light">
+        <mat-icon>create</mat-icon>
+      </a>
+      <a href="#" mat-list-item class="light">
+        <mat-icon>attach_file</mat-icon>
+      </a>
+
+    </mat-nav-list>
   </mat-sidenav>
+
+  <mat-sidenav-content fxFlexFill>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+
 </mat-sidenav-container>

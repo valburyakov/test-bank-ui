@@ -1,56 +1,18 @@
-//nav {
-//  background: #2D2E2E;
-//  height: 100%;
-//
-//  ul {
-//    list-style-type: none;
-//    padding: 0;
-//    margin: 0;
-//
-//    li {
-//
-//      a {
-        //color: #07BD6D;
-        //padding: 20px;
-        //display: block;
-      //}
-      //
-      //.activated {
-      //  background-color: #00a8ff;
-      //}
-    //}
-  //}
-//
-//}
-
-//.example-container {
-//  width: 400px;
-//  height: 200px;
-//  margin: 10px;
-//  border: 1px solid #555;
-//  color: #07BD6D;
-//}
-
-//.example-icon {
-//  padding: 0 14px;
-//  background: #2D2E2E
-//}
-
-
-//.example-container {
-//  position: absolute;
-//  top: 60px;
-//  bottom: 60px;
-//  left: 0;
-//  right: 0;
-//}
-
-.example-sidenav {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 50px;
-  background: #2D2E2E;
+#sidenav {
+  background-image: linear-gradient(45deg, #2D2E2E, #434343) !important;
 }
 
+.light {
+  color: #dddfd4;
+}
 
+.gradient-text {
+  font-size: 135%;
+  font-family: 'Montserrat', sans-serif;
+  //text-transform: uppercase;
+  //background: linear-gradient(45deg, #0B2349 33%, #0D61BC 66%, #8AA9D6);
+  //-webkit-background-clip: text;
+  //-webkit-text-fill-color: transparent;
+  color: cornsilk;
+
+}
