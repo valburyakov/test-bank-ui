@@ -1,0 +1,53 @@
+<div class="container">
+  <div [hidden]="submitted">
+    <h5>Test Case Edit Mode</h5>
+    <form (ngSubmit)="onSubmit()" #tcForm="ngForm">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <textarea type="text" class="form-control" id="name"
+               required
+               [(ngModel)]="testcasemodel.name" name="name"
+                  #name="ngModel"></textarea>
+        <div [hidden]="name.valid || name.pristine"
+             class="alert alert-danger">
+          Test Case Name is required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="status">Status</label>
+        <select class="form-control" id="status"
+                required
+                [(ngModel)]="testcasemodel.status" name="status"
+                #status="ngModel">
+          <option *ngFor="let pow of statuses" [value]="pow">{{pow}}</option>
+        </select>
+        <div [hidden]="status.valid || status.pristine" class="alert alert-danger">
+          Power is required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea type="text" class="form-control" id="description"
+                  [(ngModel)]="testcasemodel.description" name="description"></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-success" [disabled]="!tcForm.form.valid">Submit</button>
+      <button type="button" class="btn btn-danger" routerLink="/suites/cases/{{testcasemodel.id}}"> Cancel </button>
+      <button type="button" class="btn btn-default" (click)="newTestcase(); tcForm.reset()">New TC</button>
+      <i> with</i> reset
+
+      &nbsp;&nbsp;
+      <button type="button" class="btn btn-default" (click)="newTestcase()">New TC</button>
+      <i> without</i> reset
+
+      <!-- NOT SHOWN IN DOCS -->
+      <div>
+        <hr>
+        Name via form.controls = {{showFormControls(tcForm)}}
+      </div>
+      <!-- - -->
+    </form>
+  </div>
+</div>

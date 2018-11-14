@@ -5,7 +5,8 @@ import { ProjectCreateComponent } from './project-create/project-create.componen
 import { SuitesListComponent } from './suites-list/suites-list.component';
 import { TestCasesListComponent } from './test-cases-list/test-cases-list.component';
 import { TestCaseDetailsComponent } from './test-case-details/test-case-details.component';
-import {SuiteCreateComponent} from "./suite-create/suite-create.component";
+import { SuiteCreateComponent } from './suite-create/suite-create.component';
+import { TestCaseDetailsEditComponent } from './test-case-details-edit/test-case-details-edit.component';
 
 const routes: Routes = [
   { path:  '', redirectTo:  'projects', pathMatch:  'full' },
@@ -32,6 +33,10 @@ const routes: Routes = [
   {
     path: 'suites/cases/:caseId',
     component: TestCaseDetailsComponent
+  },
+  {
+    path: 'suites/cases/:caseId/edit',
+    component: TestCaseDetailsEditComponent
   }
 ];
 

@@ -1,23 +1,23 @@
 <div class="demo-card-container">
   <div class="test-case-card">
     <div class="header-group">
-      <span class="badge bg-success">TC-{{testCase.id}}</span>
 
+      <span class="badge bg-success">TC-{{testcasemodel.id}}</span>
       <mat-card-header>
         <mat-card-title-group>
           <span class="icon-spacer"></span>
-          <button mat-icon-button>
+          <button mat-icon-button routerLink="/suites/cases/{{testcasemodel.id}}/edit">
             <mat-icon>edit</mat-icon>
           </button>
-          <mat-card-title>{{testCase.name}}</mat-card-title>
-          <mat-card-subtitle>{{testCase.status }}</mat-card-subtitle>
+          <mat-card-title>{{testcasemodel.name}}</mat-card-title>
+          <mat-card-subtitle>{{testcasemodel.status }}</mat-card-subtitle>
         </mat-card-title-group>
 
       </mat-card-header>
     </div>
     <div class="pad">
       <mat-chip-list>
-        <mat-chip *ngFor="let label of testCase.labels;" id="labels">{{label}}</mat-chip>
+        <mat-chip *ngFor="let label of testcasemodel.labels;" id="labels">{{label}}</mat-chip>
       </mat-chip-list>
     </div>
 
@@ -25,14 +25,14 @@
       <mat-card class="test-case-card">
         <div class="">
           <p><strong>DESCRIPTION:</strong></p>
-          <p>{{testCase.description }}</p>
+          <p>{{testcasemodel.description }}</p>
         </div>
       </mat-card>
 
       <mat-card class="test-case-card">
         <div class="">
           <p><strong>STEPS:</strong></p>
-          <ul *ngFor="let step of testCase.steps; index as i">
+          <ul *ngFor="let step of testcasemodel.steps; index as i">
             <p>{{i+1}}. {{step.step}}</p>
           </ul>
         </div>

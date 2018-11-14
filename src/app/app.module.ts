@@ -17,7 +17,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SuiteCreateComponent } from './suite-create/suite-create.component';
-import { FlexLayoutModule } from '@angular/flex-layout';
+import { TestCaseDetailsEditComponent } from './test-case-details-edit/test-case-details-edit.component';
 
 
 
@@ -33,6 +33,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     HeaderComponent,
     FooterComponent,
     SuiteCreateComponent,
+    TestCaseDetailsEditComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,7 +50,6 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatCardModule,
     FormsModule,
     ReactiveFormsModule,
-    FlexLayoutModule,
     MatChipsModule
   ],
   providers: [],
