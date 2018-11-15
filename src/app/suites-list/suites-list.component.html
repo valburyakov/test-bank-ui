@@ -1,11 +1,23 @@
+<div class="test-card">
+  <div class="header-group">
+    <mat-card-header>
+      <mat-card-title-group>
+        <mat-card-title>
+          Suites
+          <button mat-icon-button>
+            <mat-icon id="addIcon" aria-label="Suites" (click)="openCreateSuite()">add_box</mat-icon>
+          </button>
+        </mat-card-title>
+      </mat-card-title-group>
+    </mat-card-header>
+  </div>
+</div>
+
+
 <mat-list>
-  <h3 mat-subheader>Suites
-    <button mat-icon-button>
-      <mat-icon id="addIcon" aria-label="Suites" (click)="openCreateSuite()">add_box</mat-icon>
-    </button></h3>
   <mat-list-item *ngFor="let suite of suites">
     <mat-icon class="project-icon" mat-list-icon>folder</mat-icon>
-    <a mat-line routerLink="/suites/{{ suite.id }}/cases">{{suite.name}}</a>
-  <mat-divider></mat-divider>
+    <span mat-line routerLink="/suites/{{ suite.id }}/cases">{{suite.name}}</span>
+    <mat-divider></mat-divider>
   </mat-list-item>
 </mat-list>

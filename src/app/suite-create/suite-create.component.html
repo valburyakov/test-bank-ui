@@ -1,14 +1,23 @@
-<h4> Create Suite </h4>
+<div class="test-card">
+  <div class="header-group">
+    <mat-card-header>
+      <mat-card-title-group>
+        <mat-card-title>
+          Create Suite
+        </mat-card-title>
+      </mat-card-title-group>
+    </mat-card-header>
+  </div>
+</div>
 
-<div class="suite-container">
+<mat-card class="test-card">
   <form class="suite-form" [formGroup]="suiteForm">
     <mat-form-field class="example-suite-width">
       <input matInput placeholder="Suite name" type="text" [formControl]="suiteForm.get('name')">
     </mat-form-field>
   </form>
+</mat-card>
 
-  <div>
-    <button id="createBtn" mat-button (click)="createSuite()">Create</button>
-  </div>
-</div>
-
+<mat-card-actions>
+    <button id="submitBtn" mat-button (click)="createSuite()">Create</button>
+</mat-card-actions>

@@ -1,58 +1,106 @@
-/* You can add global styles to this file, and also import other style files */
-//@import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
-@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+/* Master Styles */
 
 body {
-  margin: 0;
-  background: #F2F2F2;
-  //background: #B5B2B0;
-  font-family: 'Montserrat', sans-serif;
+  margin-left: 0;
+  background: #f8f9fa;
+  font-family: Roboto,"Helvetica Neue",sans-serif;
   height: 100vh;
+  font-weight: 500;
 }
 
-#container {
-  display: grid;
-  grid-template-columns: 70px auto;
-  height: 100%;
-
-  #content {
-    padding: 30px 10px;
-
-    ul {
-      list-style-type: none;
-      margin:0;padding:0;
-
-      li {
-        background: #fff;
-        border-radius: 8px;
-        padding: 20px;
-        margin-bottom: 8px;
-        }
-      }
-    }
+body, input[text], button {
+  color: #888;
+  font-family: Roboto,"Helvetica Neue",sans-serif;
+  font-weight: 500;
 }
 
-#containerHeader{
-  display: flex;
-  grid-template-columns: 50px auto;
+.mat-card {
+  font-family: Roboto,"Helvetica Neue",sans-serif !important;
+  font-weight: 500;
+}
+
+a {
+  cursor: pointer;
+}
+
+button {
+  font-family: Roboto,"Helvetica Neue",sans-serif;
+  background-color: #eee;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  cursor: hand;
+}
+
+button:hover {
+  background-color: #cfd8dc;
+}
+
+button:disabled {
+  background-color: #eee;
+  color: #aaa;
+  cursor: auto;
+}
+
+#updateBtn {
+  background: #3fb0ac;
+  color: #F2F2F2;
+}
+
+#deleteBtn {
+  background: #431c17;
+  color: #F2F2F2;
+}
+
+#cancelBtn {
+  background: #738b8e;
+  color: #F2F2F2;
+}
+
+#submitBtn {
+  background: #173e43;
+  color: #F2F2F2;
+}
+
+.labels {
+  background: #fae596 !important;
+  color: #173e43 !important;
+}
+
+.badges {
+  padding: 6px 10px;
+  font-size: 85%;
+  font-weight: 600;
+  letter-spacing: .3px;
+  background: #fae596;
   height: 50%;
+  width: 5%;
+  text-align: center;;
 }
 
-#containerFooter {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 20px;
-  background: #2D2E2E;
+.icon-spacer {
+  flex: 1 1 auto;
+}
+
+.test-card {
+  margin: 1%;
+  background: #f8f9fa;
+}
+
+.mat-card-actions {
+  padding-left: 1.5% !important;
+}
+
+.header-group {
+  display: flex;
+  padding-left: 1.5%;
+}
+
+.card-body {
+  background: aliceblue;
 }
 
 .project-icon {
-  color:#07BD6D;
+  color: #3fb0ac;
 }
-
-#createBtn {
-  background-color: #07BD6D;
-}
-
-

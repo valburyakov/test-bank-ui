@@ -1,14 +1,24 @@
-<h4> Create Project </h4>
-
-<div class="project-container">
-  <form class="project-form" [formGroup]="projectForm">
-    <mat-form-field class="example-full-width">
-      <input matInput placeholder="Project name" type="text" [formControl]="projectForm.get('name')">
-    </mat-form-field>
-  </form>
-
-  <div>
-    <button id="createBtn" mat-button (click)="createProject()">Create</button>
+<div class="test-card">
+  <div class="header-group">
+    <mat-card-header>
+      <mat-card-title-group>
+        <mat-card-title>
+          Create Project
+        </mat-card-title>
+      </mat-card-title-group>
+    </mat-card-header>
   </div>
 </div>
+
+<mat-card class="test-card">
+  <form class="project-form" [formGroup]="projectForm">
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Enter project name" type="text" [formControl]="projectForm.get('name')">
+    </mat-form-field>
+  </form>
+</mat-card>
+
+<mat-card-actions>
+  <button id="submitBtn" mat-button (click)="createProject()">Create</button>
+</mat-card-actions>
 

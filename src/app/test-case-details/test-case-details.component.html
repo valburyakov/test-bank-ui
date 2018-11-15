@@ -1,55 +1,49 @@
-<div class="demo-card-container">
-  <div class="test-case-card">
-    <div class="header-group">
+<div class="test-card">
+  <div class="header-group">
 
-      <span class="badge bg-success">TC-{{testcasemodel.id}}</span>
-      <mat-card-header>
-        <mat-card-title-group>
-          <span class="icon-spacer"></span>
-          <button mat-icon-button routerLink="/suites/cases/{{testcasemodel.id}}/edit">
-            <mat-icon>edit</mat-icon>
-          </button>
-          <mat-card-title>{{testcasemodel.name}}</mat-card-title>
-          <mat-card-subtitle>{{testcasemodel.status }}</mat-card-subtitle>
-        </mat-card-title-group>
+    <span class="badges">TC-{{testcasemodel.id}}</span>
+    <mat-card-header>
+      <mat-card-title-group>
+        <mat-card-title>{{testcasemodel.name}}</mat-card-title>
+        <mat-card-subtitle>{{testcasemodel.status }}</mat-card-subtitle>
+      </mat-card-title-group>
 
-      </mat-card-header>
-    </div>
-    <div class="pad">
-      <mat-chip-list>
-        <mat-chip *ngFor="let label of testcasemodel.labels;" id="labels">{{label}}</mat-chip>
-      </mat-chip-list>
-    </div>
-
-    <mat-card-content>
-      <mat-card class="test-case-card">
-        <div class="">
-          <p><strong>DESCRIPTION:</strong></p>
-          <p>{{testcasemodel.description }}</p>
-        </div>
-      </mat-card>
-
-      <mat-card class="test-case-card">
-        <div class="">
-          <p><strong>STEPS:</strong></p>
-          <ul *ngFor="let step of testcasemodel.steps; index as i">
-            <p>{{i+1}}. {{step.step}}</p>
-          </ul>
-        </div>
-      </mat-card>
-
-      <mat-card class="test-case-card">
-        <div class="">
-          <p><strong>EXPECTED RESULT: </strong></p>
-          <p></p>
-        </div>
-      </mat-card>
-
-    </mat-card-content>
-
-    <mat-card-actions>
-      <button id="updateBtn" mat-button>Update</button>
-      <button id="deleteBtn" mat-button>Delete</button>
-    </mat-card-actions>
+    </mat-card-header>
   </div>
+  <div class="pad">
+    <mat-chip-list>
+      <mat-chip *ngFor="let label of testcasemodel.labels;" id="label" class="labels">{{label}}</mat-chip>
+    </mat-chip-list>
+  </div>
+
+  <mat-card-content>
+    <mat-card class="test-card">
+      <div>
+        <p><strong>DESCRIPTION:</strong></p>
+        <p>{{testcasemodel.description }}</p>
+      </div>
+    </mat-card>
+
+    <mat-card class="test-card">
+      <div class="">
+        <p><strong>STEPS:</strong></p>
+        <ul *ngFor="let step of testcasemodel.steps; index as i">
+          <p>{{i+1}}. {{step.step}}</p>
+        </ul>
+      </div>
+    </mat-card>
+
+    <mat-card class="test-card">
+      <div>
+        <p><strong>EXPECTED RESULT: </strong></p>
+        <p></p>
+      </div>
+    </mat-card>
+
+  </mat-card-content>
+
+  <mat-card-actions>
+    <button id="updateBtn" mat-button routerLink="/suites/cases/{{testcasemodel.id}}/edit">Update</button>
+    <button id="deleteBtn" mat-button>Delete</button>
+  </mat-card-actions>
 </div>
