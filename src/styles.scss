@@ -1,14 +1,17 @@
 /* Master Styles */
 
+html, body { height: 100%; }
+
 body {
-  margin-left: 0;
+  margin: 0;
   background: #f8f9fa;
   font-family: Roboto,"Helvetica Neue",sans-serif;
-  height: 100vh;
   font-weight: 500;
+  color: #888;
 }
 
-body, input[text], button {
+
+input[text], button {
   color: #888;
   font-family: Roboto,"Helvetica Neue",sans-serif;
   font-weight: 500;
@@ -84,7 +87,7 @@ button:disabled {
 }
 
 .test-card {
-  margin: 1%;
+  margin: 1em;
   background: #f8f9fa;
 }
 
@@ -94,7 +97,7 @@ button:disabled {
 
 .header-group {
   display: flex;
-  padding-left: 1.5%;
+  padding-left: 10px;
 }
 
 .card-body {

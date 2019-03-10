@@ -1,0 +1,19 @@
+<div class="layout-wrapper" >
+  <mat-sidenav-container class="sidenav-wrapper">
+
+    <mat-sidenav id="sidenav" mode="side" opened="true" [fixedInViewport]="0">
+      <app-sidenav-list></app-sidenav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content class="content-wrapper">
+      <app-header></app-header>
+
+      <main class="content">
+        <ng-content></ng-content>
+      </main>
+
+      <app-footer></app-footer>
+    </mat-sidenav-content>
+
+  </mat-sidenav-container>
+</div>
