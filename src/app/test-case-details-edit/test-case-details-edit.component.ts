@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Testcase } from '../../models/testcase';
-import {ApiService} from '../api.service';
+import {ApiService} from '../services/api.service';
 import {ActivatedRoute} from '@angular/router';
 
 @Component({
