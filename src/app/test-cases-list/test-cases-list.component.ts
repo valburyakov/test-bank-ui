@@ -9,7 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class TestCasesListComponent implements OnInit {
 
-  private cases:  Array<object> = [];
+  cases:  Array<object> = [];
 
   constructor(private  apiService:  ApiService, private route: ActivatedRoute) { }
 

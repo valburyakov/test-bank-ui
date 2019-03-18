@@ -8,7 +8,8 @@ import { ApiService } from  '../services/api.service';
 })
 export class ProjectsListComponent implements OnInit {
 
-  private  projects:  Array<object> = [];
+  projects:  Array<object> = [];
+
   constructor(private  apiService:  ApiService) { }
   ngOnInit() {
     this.getProjects();

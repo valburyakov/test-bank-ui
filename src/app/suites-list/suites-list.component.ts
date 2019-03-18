@@ -9,7 +9,8 @@ import {ActivatedRoute, Router} from '@angular/router';
 })
 export class SuitesListComponent implements OnInit {
 
-  private suites:  Array<object> = [];
+  suites:  Array<object> = [];
+
   private projectId = +this.route.snapshot.paramMap.get('projectId');
 
   constructor(private  apiService:  ApiService,  private route: ActivatedRoute, private router: Router) { }
