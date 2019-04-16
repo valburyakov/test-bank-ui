@@ -22,7 +22,7 @@ export class TestCaseDetailsComponent implements OnInit {
     this.apiService.getTestCase(caseId).subscribe((data:  Testcase) => {
       console.log(data);
       // this.testCase  =  data;
-      this.testcasemodel = new Testcase(data.id, data.name, data.status, data.description, data.labels, data.steps);
+      this.testcasemodel = new Testcase(data.id, data.title, data.status, data.description, data.labels, data.steps);
       console.log('model: ' + this.testcasemodel);
     });
 

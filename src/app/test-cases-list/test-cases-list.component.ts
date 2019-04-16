@@ -18,8 +18,8 @@ export class TestCasesListComponent implements OnInit {
   }
 
   public  getCases(){
-    const suiteId = +this.route.snapshot.paramMap.get('suiteId');
-    this.apiService.getCases(suiteId).subscribe((data:  Array<object>) => {
+    const projectId = +this.route.snapshot.paramMap.get('projectId');
+    this.apiService.getCases(projectId).subscribe((data:  Array<object>) => {
       this.cases  =  data;
       console.log(data);
     });

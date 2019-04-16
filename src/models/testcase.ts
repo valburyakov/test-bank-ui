@@ -2,7 +2,7 @@ export class Testcase {
 
   constructor(
     public id: number,
-    public name: string,
+    public title: string,
     public status: string,
     public description?: string,
     public labels?: Array<string>,

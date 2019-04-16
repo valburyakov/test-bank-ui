@@ -26,15 +26,15 @@ export class ApiService {
   }
 
   getCases(suiteId){
-    return this.httpClient.get(`${this.API_URL}/suites/${suiteId}/cases?deleted=false`)
+    return this.httpClient.get(`${this.API_URL}/project/${suiteId}/cases?deleted=false`)
   }
 
   getTestCase(caseId){
-    return this.httpClient.get(`${this.API_URL}/suites/cases/${caseId}`)
+    return this.httpClient.get(`${this.API_URL}/case/${caseId}`)
   }
 
   createProject(project){
-    return this.httpClient.post(`${this.API_URL}/projects`, project, this.httpOptions);
+    return this.httpClient.post(`${this.API_URL}/project`, project, this.httpOptions);
   }
 
   createSuite(projectId, suite){

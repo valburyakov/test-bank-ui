@@ -16,7 +16,7 @@
 <mat-list>
   <mat-list-item *ngFor="let project of projects">
     <mat-icon class="project-icon" mat-list-icon>folder</mat-icon>
-    <span mat-line routerLink="/projects/{{ project.id }}/suites">{{project.name}}</span>
+    <span mat-line routerLink="/project/{{ project.id }}/cases">{{project.name}}</span>
     <mat-divider></mat-divider>
   </mat-list-item>
 </mat-list>

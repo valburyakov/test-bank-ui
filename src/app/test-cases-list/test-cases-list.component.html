@@ -16,7 +16,7 @@
 <mat-list>
   <mat-list-item *ngFor="let testCase of cases">
     <mat-icon class="project-icon" mat-list-icon>folder</mat-icon>
-    <span mat-line routerLink="/suites/cases/{{ testCase.id }}">{{testCase.name}}</span>
+    <span mat-line routerLink="/case/{{ testCase.id }}">{{testCase.title}}</span>
     <p mat-subheader> {{testCase.description}} </p>
     <mat-divider></mat-divider>
   </mat-list-item>
