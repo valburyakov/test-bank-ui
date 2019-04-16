@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { ApiService } from '../services/api.service';
 import { ActivatedRoute } from '@angular/router';
 import { Testcase } from '../../models/testcase';
+import { DIFF2HTML_TOKEN } from '../services/diff2html.token';
 
 @Component({
   selector: 'app-test-case-details',
@@ -10,20 +11,23 @@ import { Testcase } from '../../models/testcase';
 })
 
 export class TestCaseDetailsComponent implements OnInit {
-  testcasemodel;
+  testCase: Object;
+  diff: Object;
+  outputHtml: string;
 
-  constructor(private  apiService:  ApiService, private route: ActivatedRoute) { }
+  constructor(private  apiService:  ApiService, private route: ActivatedRoute, @Inject(DIFF2HTML_TOKEN) private diff2Html: Diff2Html.Diff2Html) { }
     ngOnInit() {
     this.getTestCase();
   }
 
   public getTestCase() {
     const caseId = + this.route.snapshot.paramMap.get('caseId');
-    this.apiService.getTestCase(caseId).subscribe((data:  Testcase) => {
-      console.log(data);
-      // this.testCase  =  data;
-      this.testcasemodel = new Testcase(data.id, data.title, data.status, data.description, data.labels, data.steps);
-      console.log('model: ' + this.testcasemodel);
+    this.apiService.getTestCase(caseId).subscribe((data) => {
+      this.testCase  =  data;
+      let diff = data["diff"].unifiedDiff
+
+      let outputHtml = this.diff2Html.getPrettyHtml(diff, {inputFormat: 'diff', outputFormat: "side-by-side" });
+      this.outputHtml = outputHtml;
     });
   }
 }
