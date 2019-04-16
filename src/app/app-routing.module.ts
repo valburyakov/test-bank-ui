@@ -5,6 +5,7 @@ import { ProjectCreateComponent } from './project-create/project-create.componen
 import { TestCasesListComponent } from './test-cases-list/test-cases-list.component';
 import { TestCaseDetailsComponent } from './test-case-details/test-case-details.component';
 import { TestCaseDetailsEditComponent } from './test-case-details-edit/test-case-details-edit.component';
+import { DiffComponent } from './diff/diff.component';
 
 const routes: Routes = [
   { path:  '', redirectTo:  'projects', pathMatch:  'full' },
@@ -27,6 +28,10 @@ const routes: Routes = [
   {
     path: 'case/:caseId/edit',
     component: TestCaseDetailsEditComponent
+  },
+  {
+    path: 'diff',
+    component: DiffComponent
   }
 ];
 

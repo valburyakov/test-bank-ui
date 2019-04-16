@@ -13,6 +13,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TestCaseDetailsEditComponent } from './test-case-details-edit/test-case-details-edit.component';
 import { LayoutModule } from './layout/layout.module';
 import { MaterialSharedModule } from './shared/material.shared.module';
+import { DiffComponent } from './diff/diff.component';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { MaterialSharedModule } from './shared/material.shared.module';
     TestCasesListComponent,
     TestCaseDetailsComponent,
     TestCaseDetailsEditComponent,
+    DiffComponent,
   ],
   imports: [
     BrowserModule,
