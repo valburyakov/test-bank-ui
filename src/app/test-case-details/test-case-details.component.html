@@ -1,4 +1,6 @@
 <div class="test-card">
+  <div [innerHtml]="outputHtml"></div>
+  
   <div class="header-group">
 
     <span class="badges">TC-{{testCase?.id}}</span>
@@ -19,7 +21,6 @@
     </mat-card>
 
   </mat-card-content>
-  <div [innerHtml]="outputHtml"></div>
   <!-- <mat-card-actions>
     <button id="updateBtn" mat-button routerLink="/case/{{testcasemodel.id}}/edit">Update</button>
     <button id="deleteBtn" mat-button>Delete</button>
