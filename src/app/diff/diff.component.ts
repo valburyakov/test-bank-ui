@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
 import {Diff2Html} from 'diff2html'
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-diff',

@@ -26,7 +26,7 @@ export class TestCaseDetailsEditComponent implements OnInit {
   public getTestCase() {
     const caseId = + this.route.snapshot.paramMap.get('caseId');
     this.apiService.getTestCase(caseId).subscribe((data:  Testcase) => {
-      this.testcasemodel = new Testcase(data.id, data.name, data.status, data.description, data.labels, data.steps);
+      this.testcasemodel = new Testcase(data.id, data.title, data.status, data.description, data.labels, data.steps);
       console.log('model: ' + this.testcasemodel);
     });
 

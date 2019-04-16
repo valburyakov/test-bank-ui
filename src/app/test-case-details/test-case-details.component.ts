@@ -25,6 +25,5 @@ export class TestCaseDetailsComponent implements OnInit {
       this.testcasemodel = new Testcase(data.id, data.title, data.status, data.description, data.labels, data.steps);
       console.log('model: ' + this.testcasemodel);
     });
-
   }
 }
