@@ -18,8 +18,8 @@ export class DiffComponent implements OnInit {
   }
 
   init() {
-    let strInput = "--- old\n+++ old\n@@ -1,2 +1,2 @@\n-Jira-456\n+Jira-476\n User is able to create somt";
-    let outputHtml = this.diff2Html.getPrettyHtml(strInput, {inputFormat: 'diff', showFiles: true, matching: 'lines'});
+    let strInput = "diff --git a/user.yml b/user.yml\nindex ba98eaf..7938422 100644\n--- a/user.yml\n+++ b/user.yml\n@@ -3,6 +3,6 @@ age: 28\n address: 4011 16th Ave S\n phone numbers:\n- name: Home\n-  number: 206-555-5138\n+  number: 206-555-6789\n- name: Work";
+    let outputHtml = this.diff2Html.getPrettyHtml(strInput, {inputFormat: 'diff', showFiles: true, matching: 'lines', outputFormat: "side-by-side"});
     this.outputHtml = outputHtml;
   }
 

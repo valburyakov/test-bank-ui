@@ -16,6 +16,7 @@ export class ProjectCreateComponent implements OnInit {
   constructor(private  apiService: ApiService, private formBuilder: FormBuilder, private router: Router) {
     this.projectForm = this.formBuilder.group({
       name: this.formBuilder.control('', Validators.required),
+      description: this.formBuilder.control('')
     });
   }
 
@@ -24,13 +25,11 @@ export class ProjectCreateComponent implements OnInit {
 
   createProject() {
     let project = {
-      name: this.projectForm.value.name
+      name: this.projectForm.value.name,
+      description: this.projectForm.value.description
     };
     this.apiService.createProject(project).subscribe(((response) => {
-      let id =  response['id'];
-      this.router.navigate(['/projects/'+ id+'/suites']);
+      this.router.navigate(['projects']);
     }));
   }
-
-
 }

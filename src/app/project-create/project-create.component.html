@@ -13,7 +13,10 @@
 <mat-card class="test-card">
   <form class="project-form" [formGroup]="projectForm">
     <mat-form-field class="example-full-width">
-      <input matInput placeholder="Enter project name" type="text" [formControl]="projectForm.get('name')">
+      <input matInput placeholder="Project name" type="text" [formControl]="projectForm.get('name')">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="description" type="text" [formControl]="projectForm.get('description')">
     </mat-form-field>
   </form>
 </mat-card>
