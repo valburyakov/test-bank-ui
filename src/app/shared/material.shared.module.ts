@@ -6,13 +6,14 @@ import {
   MatFormFieldModule,
   MatIconModule,
   MatInputModule,
-  MatListModule
+  MatListModule, MatSelectModule
 } from '@angular/material';
 
 @NgModule({
   imports: [
     MatButtonModule,
     MatInputModule,
+    MatSelectModule,
     MatFormFieldModule,
     MatIconModule,
     MatListModule,
@@ -22,6 +23,7 @@ import {
   exports: [
     MatButtonModule,
     MatInputModule,
+    MatSelectModule,
     MatFormFieldModule,
     MatIconModule,
     MatListModule,

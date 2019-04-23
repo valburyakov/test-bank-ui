@@ -3,15 +3,16 @@
 
     <div class="test-card">
       <div class="header-group">
-        <span class="badges">TC-{{testcasemodel.id}}</span>
+        <span class="badges">TC-{{testcasemodel?.id || 'NEW'}}</span>
       </div>
       <mat-card class="test-card">
         <div class="form-group">
           <label for="name">Name</label>
-          <textarea type="text" class="form-control" id="name"
+          <input type="text" class="form-control" id="name"
                     required
-                    [(ngModel)]="testcasemodel.name" name="name"
-                    #name="ngModel"></textarea>
+                    [(ngModel)]="testcasemodel.name"
+                    name="name"
+                    #name="ngModel"/>
           <div [hidden]="name.valid || name.pristine"
                class="alert alert-danger">
             Test Case Name is required
@@ -22,7 +23,8 @@
           <label for="status">Status</label>
           <select class="form-control" id="status"
                   required
-                  [(ngModel)]="testcasemodel.status" name="status"
+                  [(ngModel)]="testcasemodel.status"
+                  name="status"
                   #status="ngModel">
             <option *ngFor="let pow of statuses" [value]="pow">{{pow}}</option>
           </select>
@@ -33,12 +35,15 @@
 
         <div class="form-group">
           <label for="label">Labels</label>
-          <select class="form-control" id="label"
-                  required
-                  [(ngModel)]="testcasemodel.label" name="label"
-                  #label="ngModel">
-            <option selected>Need Multiselect</option>
-          </select>
+          <mat-select class="form-control" id="label" name="labels"
+                      required
+                      [(ngModel)]="testcasemodel.labels"
+                      #label="ngModel"
+                      multiple>
+            <mat-option *ngFor="let label of labelList" [value]="label">{{label}}</mat-option>
+          </mat-select>
+          <input matInput #labelInput type="text">
+          <button type="button" mat-button [disabled]="!labelInput.value" (click)="addLabel(labelInput.value)"> add label </button>
           <div [hidden]="label.valid || label.pristine" class="alert alert-danger">
             label is required
           </div>
@@ -63,14 +68,13 @@
 
       <mat-card-actions>
         <button id="submitBtn" mat-button [disabled]="!tcForm.form.valid">Submit</button>
-        <button id="cancelBtn" mat-button routerLink="/suites/cases/{{testcasemodel.id}}">Cancel</button>
+        <button id="cancelBtn" mat-button [routerLink]="['/cases', testcasemodel.id]">Cancel</button>
       </mat-card-actions>
 
       <!-- NOT SHOWN IN DOCS -->
-      <div>
-        <hr>
-        Name via form.controls = {{showFormControls(tcForm)}}
-      </div>
+      <pre>
+       {{ tcForm.value | json }}
+      </pre>
       <!-- - -->
     </div>
   </form>
