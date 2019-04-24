@@ -13,15 +13,15 @@
 <mat-card class="test-card">
   <form class="project-form" [formGroup]="projectForm">
     <mat-form-field class="example-full-width">
-      <input matInput placeholder="Project name" type="text" [formControl]="projectForm.get('name')">
+      <input matInput placeholder="Project name" type="text" formControlName="name">
     </mat-form-field>
     <mat-form-field class="example-full-width">
-      <input matInput placeholder="description" type="text" [formControl]="projectForm.get('description')">
+      <input matInput placeholder="description" type="text" formControlName="description">
     </mat-form-field>
   </form>
 </mat-card>
 
 <mat-card-actions>
-  <button id="submitBtn" mat-button (click)="createProject()">Create</button>
+  <button id="submitBtn" mat-button [disabled]="!projectForm.valid" (click)="createProject()">Create</button>
 </mat-card-actions>
 
