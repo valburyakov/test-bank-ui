@@ -14,6 +14,7 @@ import { TestCaseDetailsEditComponent } from './test-case-details-edit/test-case
 import { LayoutModule } from './layout/layout.module';
 import { MaterialSharedModule } from './shared/material.shared.module';
 import { DiffComponent } from './diff/diff.component';
+import { LoadingOverlayComponent } from './shared/loading-overlay/loading-overlay.component';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { DiffComponent } from './diff/diff.component';
     TestCasesListComponent,
     TestCaseDetailsComponent,
     TestCaseDetailsEditComponent,
+    LoadingOverlayComponent,
     DiffComponent,
   ],
   imports: [
