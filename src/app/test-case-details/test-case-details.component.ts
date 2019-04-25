@@ -1,8 +1,10 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { ApiService } from '../services/api.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Testcase } from '../../models/testcase';
 import { DIFF2HTML_TOKEN } from '../services/diff2html.token';
+import { finalize } from 'rxjs/operators';
+import { LoadingService } from '../services/loading.service';
 
 @Component({
   selector: 'app-test-case-details',
@@ -14,7 +16,11 @@ export class TestCaseDetailsComponent implements OnInit {
   private testCase: Object;
   private outputHtml: Object;
 
-  constructor(private  apiService:  ApiService, private route: ActivatedRoute, @Inject(DIFF2HTML_TOKEN) private diff2Html: Diff2Html.Diff2Html) { }
+  constructor(private  apiService:  ApiService, 
+    private route: ActivatedRoute, 
+    @Inject(DIFF2HTML_TOKEN) private diff2Html: Diff2Html.Diff2Html,
+    private router: Router,
+    private loadingService: LoadingService) { }
     ngOnInit() {
     this.getTestCase();
   }
@@ -29,5 +35,15 @@ export class TestCaseDetailsComponent implements OnInit {
       let outputHtml = this.diff2Html.getPrettyHtml(diff, {inputFormat: 'diff', outputFormat: "side-by-side" });
       this.outputHtml = outputHtml;
     });
+  }
+
+  public requestReview(){
+    const caseId = + this.route.snapshot.paramMap.get('caseId');
+    this.loadingService.showSpinner();
+    this.apiService.requestReview(caseId, {"email": "spirogov", "name": "spirogov"})
+                  .pipe(finalize(() => this.loadingService.hideSpinner()))
+                  .subscribe((data) => {
+                      this.getTestCase();
+                  });
   }
 }

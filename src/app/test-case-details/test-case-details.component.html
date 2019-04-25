@@ -28,5 +28,6 @@
   <mat-card-actions>
     <button id="updateBtn" mat-button routerLink="/case/{{ testCase?.id }}/edit">Update</button>
     <button id="deleteBtn" mat-button>Delete</button>
+    <button id="promoteBtn" mat-button (click)="requestReview()">Request review</button>
   </mat-card-actions>
 </div>
