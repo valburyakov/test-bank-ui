@@ -1,6 +1,4 @@
 <div class="test-card">
-  <div [innerHtml]="outputHtml"></div>
-  
   <div class="header-group">
 
     <span class="badges">TC-{{testCase?.id}}</span>
@@ -19,9 +17,16 @@
       </div>
     </mat-card>
 
+    <mat-card class="test-card" *ngIf="testCase?.reviewList.length > 0">
+      <div>
+        <p><strong>Reviews:</strong> {{ testCase?.reviewList.length }}</p>
+        <div [innerHtml]="outputHtml"></div>
+      </div>
+    </mat-card>
+
   </mat-card-content>
-  <!-- <mat-card-actions>
-    <button id="updateBtn" mat-button routerLink="/case/{{testcasemodel.id}}/edit">Update</button>
+  <mat-card-actions>
+    <button id="updateBtn" mat-button routerLink="/case/{{ testCase?.id }}/edit">Update</button>
     <button id="deleteBtn" mat-button>Delete</button>
-  </mat-card-actions> -->
+  </mat-card-actions>
 </div>

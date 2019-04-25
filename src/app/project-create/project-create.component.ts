@@ -31,7 +31,8 @@ export class ProjectCreateComponent implements OnInit {
   createProject() {
     const project = {
       name: this.projectForm.value.name,
-      description: this.projectForm.value.description
+      description: this.projectForm.value.description,
+      private: true
     };
 
     this.loadingService.showSpinner();

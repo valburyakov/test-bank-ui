@@ -11,9 +11,8 @@ import { DIFF2HTML_TOKEN } from '../services/diff2html.token';
 })
 
 export class TestCaseDetailsComponent implements OnInit {
-  testCase: Object;
-  diff: Object;
-  outputHtml: string;
+  private testCase: Object;
+  private outputHtml: Object;
 
   constructor(private  apiService:  ApiService, private route: ActivatedRoute, @Inject(DIFF2HTML_TOKEN) private diff2Html: Diff2Html.Diff2Html) { }
     ngOnInit() {
@@ -24,7 +23,8 @@ export class TestCaseDetailsComponent implements OnInit {
     const caseId = + this.route.snapshot.paramMap.get('caseId');
     this.apiService.getTestCase(caseId).subscribe((data) => {
       this.testCase  =  data;
-      let diff = data["diff"].unifiedDiff
+      
+      let diff = data["reviewList"][0].diff
 
       let outputHtml = this.diff2Html.getPrettyHtml(diff, {inputFormat: 'diff', outputFormat: "side-by-side" });
       this.outputHtml = outputHtml;
