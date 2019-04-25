@@ -5,7 +5,7 @@
         <mat-card-title>
           Test Cases
     <button mat-icon-button>
-      <mat-icon id="addIcon" aria-label="Test Cases" [routerLink]="">add_box</mat-icon>
+      <mat-icon id="addIcon" aria-label="Test Cases" [routerLink]="['/case/new/edit']" [queryParams]="{'projectId': projectId}">add_box</mat-icon>
     </button>
         </mat-card-title>
       </mat-card-title-group>

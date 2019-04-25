@@ -1,16 +1,16 @@
-<div [hidden]="submitted">
   <form (ngSubmit)="onSubmit()" #tcForm="ngForm">
 
     <div class="test-card">
       <div class="header-group">
         <span class="badges">TC-{{testcasemodel?.id || 'NEW'}}</span>
+        <mat-error class="text-center" *ngIf="errorMessage">{{ errorMessage }}</mat-error>
       </div>
       <mat-card class="test-card">
         <div class="form-group">
-          <label for="name">Name</label>
+          <label for="name">Title</label>
           <input type="text" class="form-control" id="name"
                     required
-                    [(ngModel)]="testcasemodel.name"
+                    [(ngModel)]="testcasemodel.title"
                     name="name"
                     #name="ngModel"/>
           <div [hidden]="name.valid || name.pristine"
@@ -34,19 +34,33 @@
         </div>
 
         <div class="form-group">
-          <label for="label">Labels</label>
-          <mat-select class="form-control" id="label" name="labels"
-                      required
-                      [(ngModel)]="testcasemodel.labels"
-                      #label="ngModel"
-                      multiple>
-            <mat-option *ngFor="let label of labelList" [value]="label">{{label}}</mat-option>
-          </mat-select>
-          <input matInput #labelInput type="text">
-          <button type="button" mat-button [disabled]="!labelInput.value" (click)="addLabel(labelInput.value)"> add label </button>
-          <div [hidden]="label.valid || label.pristine" class="alert alert-danger">
-            label is required
-          </div>
+          <mat-form-field class="chip-list">
+            <label for="status">Labels</label>
+            <mat-chip-list #chipList id="labels">
+              <mat-chip
+                *ngFor="let label of testcasemodel?.labels"
+                [selectable]="true"
+                [removable]="true"
+                (removed)="remove(label)">
+                {{label}}
+                <mat-icon matChipRemove>cancel</mat-icon>
+              </mat-chip>
+              <input
+                #labelInput
+                [formControl]="labelCtrl"
+                [matAutocomplete]="auto"
+                [matChipInputFor]="chipList"
+                [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                [matChipInputAddOnBlur]="true"
+                (matChipInputTokenEnd)="add($event)">
+            </mat-chip-list>
+            <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+              <mat-option *ngFor="let label of filteredLabels$ | async" [value]="label">
+                {{label}}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+
         </div>
       </mat-card>
 
@@ -68,15 +82,7 @@
 
       <mat-card-actions>
         <button id="submitBtn" mat-button [disabled]="!tcForm.form.valid">Submit</button>
-        <button id="cancelBtn" mat-button [routerLink]="['/cases', testcasemodel.id]">Cancel</button>
+        <button id="cancelBtn" mat-button [routerLink]="testcasemodel.id ? ['/cases', testcasemodel.id] : ['/project', projectId, 'cases']">Cancel</button>
       </mat-card-actions>
-
-      <!-- NOT SHOWN IN DOCS -->
-      <pre>
-       {{ tcForm.value | json }}
-      </pre>
-      <!-- - -->
     </div>
   </form>
-
-</div>

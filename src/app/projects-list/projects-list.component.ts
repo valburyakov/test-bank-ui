@@ -15,6 +15,7 @@ export class ProjectsListComponent implements OnInit {
 
   constructor(private apiService: ApiService, private loadingService: LoadingService) { }
   ngOnInit() {
+    // TODO fix ExpressionChangedAfterItHasBeenCheckedError
     this.getProjects();
     this.getTreeData();
   }
@@ -22,7 +23,7 @@ export class ProjectsListComponent implements OnInit {
   public getProjects() {
     this.loadingService.showSpinner();
     this.apiService.getProjects().pipe(finalize(() => this.loadingService.hideSpinner()))
-      .subscribe((data:  Array<object>) => {
+      .subscribe((data: Array<object>) => {
         this.projects = data;
         console.log(data);
     });

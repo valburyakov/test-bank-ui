@@ -26,6 +26,14 @@ export class ApiService {
     return this.httpClient.get(`${this.API_URL}/projects/${projectId}/suites?deleted=false`)
   }
 
+  getLabels(projectId: number) {
+    return this.httpClient.get<string[]>(`${this.API_URL}/project/${projectId}/labels`);
+  }
+
+  addTestCase(testCase, projectId) {
+    return this.httpClient.post(`${this.API_URL}/project/${projectId}/case`, testCase, this.httpOptions);
+  }
+
   getCases(suiteId){
     return this.httpClient.get(`${this.API_URL}/project/${suiteId}/cases?deleted=false`)
   }

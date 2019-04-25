@@ -10,6 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 export class TestCasesListComponent implements OnInit {
 
   cases:  Array<object> = [];
+  projectId: number;
 
   constructor(private  apiService:  ApiService, private route: ActivatedRoute) { }
 
@@ -17,10 +18,10 @@ export class TestCasesListComponent implements OnInit {
     this.getCases();
   }
 
-  public  getCases(){
-    const projectId = +this.route.snapshot.paramMap.get('projectId');
-    this.apiService.getCases(projectId).subscribe((data:  Array<object>) => {
-      this.cases  =  data;
+  public getCases(){
+    this.projectId = +this.route.snapshot.paramMap.get('projectId');
+    this.apiService.getCases(this.projectId).subscribe((data:  Array<object>) => {
+      this.cases = data;
       console.log(data);
     });
   }
