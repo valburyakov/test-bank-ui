@@ -22,6 +22,7 @@
         <p><strong>Reviews:</strong> {{ testCase?.reviewList.length }}</p>
         <div [innerHtml]="outputHtml"></div>
       </div>
+      <button id="deleteBtn" mat-button (click)="merge(testCase?.reviewList[0].pullRequestId)">Merge</button>
     </mat-card>
 
   </mat-card-content>

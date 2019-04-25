@@ -46,4 +46,13 @@ export class TestCaseDetailsComponent implements OnInit {
                       this.getTestCase();
                   });
   }
+
+  public merge(pullRequestId: number){
+    this.loadingService.showSpinner();
+    this.apiService.merge(pullRequestId)
+                  .pipe(finalize(() => this.loadingService.hideSpinner()))
+                  .subscribe((data) => {
+                      this.getTestCase();
+                  });
+  }
 }
