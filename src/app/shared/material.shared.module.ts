@@ -6,27 +6,33 @@ import {
   MatFormFieldModule,
   MatIconModule,
   MatInputModule,
-  MatListModule
+  MatListModule, MatProgressBarModule, MatProgressSpinnerModule, MatSelectModule
 } from '@angular/material';
 
 @NgModule({
   imports: [
     MatButtonModule,
     MatInputModule,
+    MatSelectModule,
     MatFormFieldModule,
     MatIconModule,
     MatListModule,
     MatCardModule,
-    MatChipsModule
+    MatChipsModule,
+    MatProgressSpinnerModule,
+    MatProgressBarModule
   ],
   exports: [
     MatButtonModule,
     MatInputModule,
+    MatSelectModule,
     MatFormFieldModule,
     MatIconModule,
     MatListModule,
     MatCardModule,
-    MatChipsModule
+    MatChipsModule,
+    MatProgressSpinnerModule,
+    MatProgressBarModule
   ]
 })
 export class MaterialSharedModule {

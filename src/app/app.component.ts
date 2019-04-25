@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LoadingService } from './services/loading.service';
 
 
 @Component({
@@ -8,5 +9,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Test Bank';
+  loading$ = this.loadingService.loading$;
+
+  constructor(private loadingService: LoadingService) {}
 }
 
