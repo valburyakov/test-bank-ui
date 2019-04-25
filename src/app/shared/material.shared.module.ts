@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import {
+  MatAutocompleteModule,
   MatButtonModule,
   MatCardModule,
   MatChipsModule,
@@ -19,6 +20,7 @@ import {
     MatListModule,
     MatCardModule,
     MatChipsModule,
+    MatAutocompleteModule,
     MatProgressSpinnerModule,
     MatProgressBarModule
   ],
@@ -31,6 +33,7 @@ import {
     MatListModule,
     MatCardModule,
     MatChipsModule,
+    MatAutocompleteModule,
     MatProgressSpinnerModule,
     MatProgressBarModule
   ]

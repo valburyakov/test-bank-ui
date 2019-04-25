@@ -78,7 +78,7 @@ button:disabled {
   letter-spacing: .3px;
   background: #fae596;
   height: 50%;
-  width: 5%;
+  width: 6%;
   text-align: center;;
 }
 
@@ -97,6 +97,7 @@ button:disabled {
 
 .header-group {
   display: flex;
+  flex-direction: column;
   padding-left: 10px;
 }
 
