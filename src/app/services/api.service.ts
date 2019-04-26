@@ -1,13 +1,15 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders} from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '@env/environment';
+import { Testcase } from '@models/testcase';
+import { ReviewModel } from '@models/review.model';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
-  
+
   API_URL = environment.apiUrl;
   httpOptions = {
     headers: new HttpHeaders({
@@ -18,35 +20,39 @@ export class ApiService {
 
   constructor(private  httpClient:  HttpClient) { }
 
-  getProjects(){
+  getProjects() {
     return  this.httpClient.get<ProjectModel[]>(`${this.API_URL}/projects`);
   }
 
-  getSuites(projectId){
-    return this.httpClient.get(`${this.API_URL}/projects/${projectId}/suites?deleted=false`)
+  getSuites(projectId) {
+    return this.httpClient.get(`${this.API_URL}/projects/${projectId}/suites?deleted=false`);
   }
 
   getLabels(projectId: number) {
     return this.httpClient.get<string[]>(`${this.API_URL}/project/${projectId}/labels`);
   }
 
-  addTestCase(testCase, projectId) {
-    return this.httpClient.post(`${this.API_URL}/project/${projectId}/case`, testCase, this.httpOptions);
+  addTestCase(testCase: Testcase, projectId: number) {
+    return this.httpClient.post<Testcase>(`${this.API_URL}/project/${projectId}/case`, testCase, this.httpOptions);
   }
 
-  getCases(suiteId){
-    return this.httpClient.get(`${this.API_URL}/project/${suiteId}/cases?deleted=false`)
+  updateTestCase(testCase: Testcase) {
+    return this.httpClient.put<ReviewModel>(`${this.API_URL}/case/${testCase.id}/update`, testCase, this.httpOptions);
   }
 
-  getTestCase(caseId){
-    return this.httpClient.get(`${this.API_URL}/case/${caseId}`)
+  getCases(suiteId) {
+    return this.httpClient.get(`${this.API_URL}/project/${suiteId}/cases?deleted=false`);
   }
 
-  createProject(project){
+  getTestCase(caseId) {
+    return this.httpClient.get(`${this.API_URL}/case/${caseId}`);
+  }
+
+  createProject(project) {
     return this.httpClient.post(`${this.API_URL}/project`, project, this.httpOptions);
   }
 
-  createSuite(projectId, suite){
+  createSuite(projectId, suite) {
     return this.httpClient.post(`${this.API_URL}/projects/${projectId}/suites`, suite, this.httpOptions);
   }
 
@@ -57,4 +63,5 @@ export class ApiService {
   merge(pullRequestId: number) {
     return this.httpClient.post(`${this.API_URL}/pull-request/${pullRequestId}/merge`, {});
   }
+
 }

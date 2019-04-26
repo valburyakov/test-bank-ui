@@ -7,6 +7,7 @@ import { FormControl } from '@angular/forms';
 import { MatAutocomplete, MatAutocompleteSelectedEvent, MatChipInputEvent } from '@angular/material';
 import { Observable } from 'rxjs';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
+import { ReviewModel } from '@models/review.model';
 
 @Component({
   selector: 'app-test-case-details-edit',
@@ -15,7 +16,6 @@ import { COMMA, ENTER } from '@angular/cdk/keycodes';
 })
 export class TestCaseDetailsEditComponent implements OnInit {
   testcasemodel: Testcase;
-  statuses = ['new', 'tested', 'not tested', 'in progress'];
   labelList = [];
   projectId: number;
   errorMessage: string;
@@ -28,14 +28,18 @@ export class TestCaseDetailsEditComponent implements OnInit {
   @ViewChild('labelInput') labelInput: ElementRef<HTMLInputElement>;
 
   onSubmit() {
-    // TODO call service to create or update test case;
     console.log(this.testcasemodel);
-    this.apiService.addTestCase(this.testcasemodel, this.projectId).subscribe(
+
+    const apiCall: Observable<Testcase | ReviewModel> = this.testcasemodel && this.testcasemodel.id
+      ? this.apiService.updateTestCase(this.testcasemodel)
+      : this.apiService.addTestCase(this.testcasemodel, this.projectId);
+
+    apiCall.subscribe(
       res => {
         console.log(res);
         // Navigate to newly created test case
-        this.router.navigate(['/cases', res.id]);
-      }, err => this.errorMessage = err.error.message || 'Error occurred during creating test case'
+        this.router.navigate(['/cases', this.testcasemodel.id || res.id]);
+      }, err => this.errorMessage = err.error.message || 'Error occurred during posting test case'
     );
   }
 
@@ -59,15 +63,24 @@ export class TestCaseDetailsEditComponent implements OnInit {
     if (caseId === 'new') {
       if (this.route.snapshot.queryParamMap.has('projectId')) {
         this.projectId = +this.route.snapshot.queryParamMap.get('projectId');
-        this.testcasemodel = new Testcase(null, '', 'new', '', [], ['api']);
+        this.testcasemodel = new Testcase({
+          labels: ['api'],
+          changedBy: 'Test User',
+          reference: '',
+          title: '',
+          steps: []
+        });
         this.getLabelList();
         return;
       }
 
-      throw Error('Need to provide project Id to add new test case');
+      this.errorMessage = 'Need to provide project Id to add new test case';
+      return;
     }
-    this.apiService.getTestCase(caseId).subscribe((data:  Testcase) => {
-      this.testcasemodel = new Testcase(data.id, data.title, data.status, data.description, {}, data.labels, data.steps);
+    this.apiService.getTestCase(caseId).subscribe((data: Testcase) => {
+      // TODO Need to load label list from test case project
+      // this.getLabelList(data.projectId);
+      this.testcasemodel = new Testcase(data);
     });
 
   }
@@ -118,4 +131,7 @@ export class TestCaseDetailsEditComponent implements OnInit {
     return this.labelList.filter(label => label.toLowerCase().indexOf(filterValue) === 0);
   }
 
+  addStep() {
+    this.testcasemodel.steps.push('');
+  }
 }

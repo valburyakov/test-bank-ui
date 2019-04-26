@@ -1,14 +1,17 @@
 export class Testcase {
 
-  constructor(
-    public id: number,
-    public title: string,
-    public status: string,
-    public description?: string,
-    public diff?: object,
-    public labels?: Array<string>,
-    public steps?: Array<string>
-    // public expectedresult?: string
-  ) {  }
+  public id: number;
+  public title: string;
+  public reference: string;
+  public changedBy: string;
+  public description?: string;
+  public status?: string;
+  public diff?: object;
+  public labels?: Array<string>;
+  public steps?: Array<string>;
+
+  constructor(options: Partial<Testcase>) {
+    Object.assign(this, options);
+  }
 
 }

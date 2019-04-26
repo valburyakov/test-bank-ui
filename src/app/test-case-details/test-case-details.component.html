@@ -5,7 +5,11 @@
     <mat-card-header>
       <mat-card-title-group>
         <mat-card-title>{{testCase?.title}}</mat-card-title>
-        <mat-card-subtitle>{{testCase?.labels}}</mat-card-subtitle>
+        <mat-card-subtitle>
+          <mat-chip-list>
+            <mat-chip *ngFor="let label of testCase?.labels" color="primary" selected>{{label}}</mat-chip>
+          </mat-chip-list>
+        </mat-card-subtitle>
       </mat-card-title-group>
     </mat-card-header>
   </div>

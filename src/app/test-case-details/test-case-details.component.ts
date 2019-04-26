@@ -14,10 +14,10 @@ import { LoadingService } from '../services/loading.service';
 
 export class TestCaseDetailsComponent implements OnInit {
   private testCase: Object;
-  private outputHtml: Object;
+  private outputHtml: string;
 
-  constructor(private  apiService:  ApiService, 
-    private route: ActivatedRoute, 
+  constructor(private  apiService:  ApiService,
+    private route: ActivatedRoute,
     @Inject(DIFF2HTML_TOKEN) private diff2Html: Diff2Html.Diff2Html,
     private router: Router,
     private loadingService: LoadingService) { }
@@ -29,25 +29,25 @@ export class TestCaseDetailsComponent implements OnInit {
     const caseId = + this.route.snapshot.paramMap.get('caseId');
     this.apiService.getTestCase(caseId).subscribe((data) => {
       this.testCase  =  data;
-      
-      let diff = data["reviewList"][0].diff
 
-      let outputHtml = this.diff2Html.getPrettyHtml(diff, {inputFormat: 'diff', outputFormat: "side-by-side" });
+      const diff = data['reviewList'][0].diff;
+
+      const outputHtml = this.diff2Html.getPrettyHtml(diff, {inputFormat: 'diff', outputFormat: 'side-by-side' });
       this.outputHtml = outputHtml;
     });
   }
 
-  public requestReview(){
+  public requestReview() {
     const caseId = + this.route.snapshot.paramMap.get('caseId');
     this.loadingService.showSpinner();
-    this.apiService.requestReview(caseId, {"email": "spirogov", "name": "spirogov"})
+    this.apiService.requestReview(caseId, {'email': 'spirogov', 'name': 'spirogov'})
                   .pipe(finalize(() => this.loadingService.hideSpinner()))
                   .subscribe((data) => {
                       this.getTestCase();
                   });
   }
 
-  public merge(pullRequestId: number){
+  public merge(pullRequestId: number) {
     this.loadingService.showSpinner();
     this.apiService.merge(pullRequestId)
                   .pipe(finalize(() => this.loadingService.hideSpinner()))
